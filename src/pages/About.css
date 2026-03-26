@@ -1,0 +1,148 @@
+/* About.css */
+.about-hero {
+  background: linear-gradient(135deg, #0a1628 0%, #1a4a3a 100%);
+  padding: 200px 0 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .about-hero { padding-top: 170px; }
+}
+@media (max-width: 768px) {
+  .about-hero { padding: 140px 0 60px; }
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 60% 40%, rgba(249,115,22,0.1) 0%, transparent 50%);
+}
+
+.mission-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  transition: all 0.3s;
+}
+
+.mission-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 44px rgba(0,0,0,0.12);
+}
+
+.mission-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: rgba(26,154,139,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  color: var(--color-primary);
+  transition: all 0.3s;
+}
+
+.mission-card:hover .mission-icon {
+  background: var(--color-primary);
+  color: white;
+}
+
+.team-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.12);
+}
+
+.team-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.team-body {
+  padding: 1.4rem;
+}
+
+.team-name {
+  font-family: var(--font-accent);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 2px;
+}
+
+.team-role {
+  font-size: 0.82rem;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.award-badge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  border-radius: 16px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+  margin-bottom: 1rem;
+}
+
+.award-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(249,115,22,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f97316;
+  flex-shrink: 0;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+}
+
+.timeline-year {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  min-width: 80px;
+  padding-top: 2px;
+}
+
+.timeline-content {
+  padding-bottom: 2.5rem;
+  border-left: 2px solid #e2e8f0;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}

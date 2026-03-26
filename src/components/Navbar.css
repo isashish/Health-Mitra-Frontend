@@ -1,0 +1,227 @@
+/* Navbar.css */
+.navbar {
+  position: fixed;
+  top: 28px; /* sits below the 28px ticker */
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  padding: 0.2rem 0;
+}
+
+@media (max-width: 768px) {
+  .navbar { top: 0; }
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  padding: 0.35rem 0;
+}
+
+.navbar.transparent {
+  background: transparent;
+}
+
+.nav-logo {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo .logo-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.nav-link {
+  font-family: var(--font-accent);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4a5568;
+  text-decoration: none;
+  padding: 0.4rem 0;
+  position: relative;
+  transition: color 0.2s;
+  letter-spacing: 0.01em;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-primary);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.navbar.transparent .nav-link {
+  color: #4a5568; /* dark text for visibility on light hero backgrounds */
+}
+
+.navbar.transparent .nav-link:hover,
+.navbar.transparent .nav-link.active {
+  color: var(--color-primary);
+}
+
+.navbar.transparent .nav-link::after {
+  background: var(--color-primary);
+}
+
+.nav-cta {
+  background: var(--color-primary);
+  color: white !important;
+  padding: 0.55rem 1.4rem !important;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 4px 15px rgba(26, 154, 139, 0.3);
+}
+
+.nav-cta:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(26, 154, 139, 0.4);
+}
+
+.nav-cta::after {
+  display: none !important;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--color-dark);
+}
+
+.mobile-nav {
+  display: none;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--color-dark);
+}
+
+.navbar.transparent .hamburger {
+  color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .nav-links-desktop {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .mobile-nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px; /* sidebar width */
+    bottom: 0;
+    background: #ffffff;
+    z-index: 1210;
+    transform: translateX(-100%); /* slide from left */
+    transition: transform 0.35s cubic-bezier(0.1, 0, 0.2, 1);
+    box-shadow: 10px 0 30px rgba(0,0,0,0.15);
+  }
+
+  .mobile-nav.open {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: 2rem;
+  }
+
+  .mobile-links-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* left-aligned */
+    gap: 1.5rem;
+    overflow-y: auto;
+    padding: 2rem 1.5rem;
+    border-top: none;
+  }
+
+  .mobile-nav-link {
+    font-family: var(--font-accent);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2d3748;
+    text-decoration: none;
+    transition: all 0.2s;
+    width: 100%;
+  }
+
+  .mobile-nav-link.active {
+    color: var(--color-primary);
+    border-left: 3px solid var(--color-primary);
+    padding-left: 0.8rem;
+    margin-left: -0.8rem;
+  }
+
+  .mobile-cta-bar {
+    background: var(--color-primary);
+    color: white;
+    text-align: center;
+    padding: 1.25rem;
+    font-family: var(--font-accent);
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    width: 100%;
+  }
+
+  .mobile-cta-bar:active {
+    background: var(--color-primary-dark);
+  }
+}
+
+/* Fix for small phones */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.6rem 0;
+  }
+  .nav-logo {
+    font-size: 1.3rem;
+  }
+}

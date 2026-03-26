@@ -1,0 +1,622 @@
+/* =============================================
+   Home.css — MediCare Healthcare Theme
+   ============================================= */
+
+/* ===== PAGE WRAPPER ===== */
+.home-main {
+  padding-top: 0;
+  /* navbar handled via quotes-ticker nudge */
+  overflow-x: hidden;
+}
+
+/* ===== QUOTES TICKER ===== */
+.quotes-ticker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100;
+  background: linear-gradient(90deg, #0d3b35 0%, #1a9a8b 50%, #0d3b35 100%);
+  padding: 0.45rem 1.5rem;
+  text-align: center;
+  overflow: hidden;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: opacity 0.4s ease;
+}
+
+.quote-fade-in {
+  opacity: 1;
+}
+
+.quote-fade-out {
+  opacity: 0;
+}
+
+.quote-mark-icon {
+  color: rgba(255, 255, 255, 0.6);
+  flex-shrink: 0;
+}
+
+.quote-text {
+  font-family: var(--font-accent);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+.quote-author {
+  font-family: var(--font-accent);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ===== HERO SECTION ===== */
+/* 36px quotes ticker + ~70px navbar = 106px total */
+.hero-section {
+  margin-top: 86px;
+  /* push below ticker + navbar */
+}
+
+@media (max-width: 450px) {
+  .hero-section {
+    margin-top: 70px;
+  }
+}
+
+.hero-swiper {
+  height: calc(100vh - 86px);
+  min-height: 500px;
+}
+
+@media (max-width: 450px) {
+  .hero-swiper {
+    height: calc(100vh - 70px);
+    min-height: 400px;
+  }
+}
+
+.hero-slide {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+      rgba(5, 20, 30, 0.75) 0%,
+      rgba(5, 20, 30, 0.4) 60%,
+      transparent 100%);
+}
+
+.slide-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.slide-text-block {
+  max-width: 580px;
+  animation: fadeInUp 0.8s ease both;
+}
+
+/* ===== HERO TEXT ===== */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(26, 154, 139, 0.2);
+  border: 1px solid rgba(94, 202, 187, 0.4);
+  color: #5ecabb;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-family: var(--font-accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+  font-weight: 700;
+  color: white;
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.8;
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+  background: linear-gradient(135deg, #1a9a8b, #13796c);
+  color: white;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  font-family: var(--font-accent);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 8px 25px rgba(26, 154, 139, 0.4);
+  transition: all 0.25s ease;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1dab9a, #1a9a8b);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(26, 154, 139, 0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: white;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  font-family: var(--font-accent);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+
+.btn-outline:hover {
+  border-color: white;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ===== STATS STRIP ===== */
+.stats-strip {
+  background: linear-gradient(90deg, #0d3b35, #1a9a8b, #0d3b35);
+  padding: 1.8rem 0;
+  position: relative;
+}
+
+.stats-strip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.stat-item {
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.stat-text {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin-top: 0.2rem;
+  font-family: var(--font-accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ===== SECTION BACKGROUNDS ===== */
+.section-light {
+  background: linear-gradient(180deg, #f0faf9 0%, #f8fffe 100%);
+}
+
+.section-white {
+  background: white;
+}
+
+/* ===== SECTION COMMON ===== */
+.section-tag {
+  font-family: var(--font-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #0d2a38;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #718096;
+  line-height: 1.8;
+  max-width: 540px;
+}
+
+/* ===== SERVICE CARDS ===== */
+.service-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1.5px solid rgba(26, 154, 139, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(26, 154, 139, 0.06);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1a9a8b, #5ecabb);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(26, 154, 139, 0.15);
+  border-color: rgba(26, 154, 139, 0.2);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(26, 154, 139, 0.12), rgba(26, 154, 139, 0.06));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  color: var(--color-primary);
+  transition: all 0.3s;
+}
+
+.service-card:hover .service-icon {
+  background: linear-gradient(135deg, #1a9a8b, #13796c);
+  color: white;
+  box-shadow: 0 8px 20px rgba(26, 154, 139, 0.35);
+}
+
+.service-title {
+  font-family: var(--font-accent);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0d2a38;
+  margin-bottom: 0.5rem;
+}
+
+.service-desc {
+  font-size: 0.875rem;
+  color: #718096;
+  line-height: 1.65;
+}
+
+/* ===== HEALTH QUOTE BANNER ===== */
+.quote-banner-section {
+  background: linear-gradient(135deg, #0a1e2a 0%, #0d3b35 40%, #134e49 100%);
+  padding: 5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-banner-section::before {
+  content: '"';
+  position: absolute;
+  font-size: 30rem;
+  font-family: Georgia, serif;
+  color: rgba(255, 255, 255, 0.02);
+  top: -8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.quote-banner-icon {
+  color: #5ecabb;
+  margin-bottom: 1.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.8;
+}
+
+.quote-banner-text {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  color: white;
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+}
+
+.quote-banner-author {
+  font-family: var(--font-accent);
+  font-size: 0.9rem;
+  color: #5ecabb;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* ===== WHY US ===== */
+.why-us-img {
+  border-radius: 24px;
+  width: 100%;
+  object-fit: cover;
+  height: 480px;
+  box-shadow: 0 24px 64px rgba(26, 154, 139, 0.18);
+  border: 4px solid rgba(26, 154, 139, 0.1);
+}
+
+.why-us-desc {
+  color: #718096;
+  line-height: 1.85;
+  margin-bottom: 2rem;
+  font-size: 0.98rem;
+}
+
+.feature-text {
+  font-size: 0.95rem;
+  color: #4a5568;
+}
+
+/* ===== DOCTOR CARD ===== */
+.doctor-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s ease;
+  border: 1.5px solid rgba(26, 154, 139, 0.06);
+}
+
+.doctor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(26, 154, 139, 0.14);
+  border-color: rgba(26, 154, 139, 0.15);
+}
+
+.doctor-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.doctor-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #1a9a8b, #13796c);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-family: var(--font-accent);
+  letter-spacing: 0.04em;
+}
+
+.doctor-name {
+  font-family: var(--font-accent);
+  font-weight: 700;
+  font-size: 1rem;
+  color: #0d2a38;
+  margin-bottom: 4px;
+}
+
+.doctor-specialty {
+  font-size: 0.82rem;
+  color: #718096;
+  margin-bottom: 8px;
+}
+
+.doctor-rating {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0d2a38;
+}
+
+.doctor-reviews {
+  font-size: 0.78rem;
+  color: #a0aec0;
+  margin-left: 2px;
+}
+
+.doctor-book-btn {
+  width: 100%;
+  justify-content: center;
+  font-size: 0.85rem;
+  padding: 0.6rem 1rem;
+  margin-top: 0.75rem;
+}
+
+/* ===== TESTIMONIAL SECTION ===== */
+.testimonial-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 30px rgba(26, 154, 139, 0.08);
+  height: 100%;
+  border: 1.5px solid rgba(26, 154, 139, 0.07);
+  transition: box-shadow 0.3s;
+}
+
+.testimonial-card:hover {
+  box-shadow: 0 12px 40px rgba(26, 154, 139, 0.14);
+}
+
+.avatar-ring {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid var(--color-primary);
+}
+
+.quote-icon {
+  font-size: 3.5rem;
+  line-height: 1;
+  color: rgba(26, 154, 139, 0.15);
+  font-family: Georgia, serif;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.testimonial-text {
+  font-size: 0.9rem;
+  color: #4a5568;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.testimonial-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-family: var(--font-accent);
+  color: #0d2a38;
+}
+
+.testimonial-city {
+  font-size: 0.78rem;
+  color: #a0aec0;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  background: linear-gradient(135deg, #060e17 0%, #0a1e2a 40%, #0d3b35 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 60%, rgba(26, 154, 139, 0.25) 0%, transparent 55%),
+    radial-gradient(circle at 75% 30%, rgba(94, 202, 187, 0.1) 0%, transparent 40%);
+}
+
+.cta-desc {
+  color: rgba(255, 255, 255, 0.62);
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.85;
+  font-size: 1rem;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease both;
+}
+
+/* ===== NAVBAR OFFSET (ticker + navbar) ===== */
+/* The quotes-ticker is 36px, navbar is ~70px */
+/* hero-section margin-top accounts for both */
