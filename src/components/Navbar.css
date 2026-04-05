@@ -1,7 +1,8 @@
 /* Navbar.css */
 .navbar {
   position: fixed;
-  top: 28px; /* sits below the 28px ticker */
+  top: 28px;
+  /* sits below the 28px ticker */
   left: 0;
   right: 0;
   z-index: 1000;
@@ -10,7 +11,9 @@
 }
 
 @media (max-width: 768px) {
-  .navbar { top: 0; }
+  .navbar {
+    top: 0;
+  }
 }
 
 .navbar.scrolled {
@@ -78,7 +81,8 @@
 }
 
 .navbar.transparent .nav-link {
-  color: #4a5568; /* dark text for visibility on light hero backgrounds */
+  color: #4a5568;
+  /* dark text for visibility on light hero backgrounds */
 }
 
 .navbar.transparent .nav-link:hover,
@@ -148,13 +152,15 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 280px; /* sidebar width */
+    width: 280px;
+    /* sidebar width */
     bottom: 0;
     background: #ffffff;
     z-index: 1210;
-    transform: translateX(-100%); /* slide from left */
+    transform: translateX(-100%);
+    /* slide from left */
     transition: transform 0.35s cubic-bezier(0.1, 0, 0.2, 1);
-    box-shadow: 10px 0 30px rgba(0,0,0,0.15);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.15);
   }
 
   .mobile-nav.open {
@@ -166,14 +172,40 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    padding-top: 2rem;
+    padding-top: 0;
+  }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .mobile-close-btn {
+    background: none;
+    border: none;
+    color: var(--color-dark);
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s;
+  }
+
+  .mobile-close-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
   }
 
   .mobile-links-wrapper {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* left-aligned */
+    align-items: flex-start;
+    /* left-aligned */
     gap: 1.5rem;
     overflow-y: auto;
     padding: 2rem 1.5rem;
@@ -221,6 +253,7 @@
   .navbar {
     padding: 0.6rem 0;
   }
+
   .nav-logo {
     font-size: 1.3rem;
   }

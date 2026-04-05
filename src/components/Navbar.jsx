@@ -73,6 +73,19 @@ export default function Navbar() {
       )}
       <div className={`mobile-nav ${mobileOpen ? 'open' : ''}`}>
         <div className="mobile-nav-content">
+          <div className="mobile-nav-header">
+            <Link to="/" className="nav-logo" onClick={() => setMobileOpen(false)}>
+              <HeartPulse size={22} />
+              Health<span style={{ color: 'var(--color-accent)' }}>Mitra</span>
+            </Link>
+            <button 
+              className="mobile-close-btn"
+              onClick={() => setMobileOpen(false)}
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
+          </div>
           <div className="mobile-links-wrapper">
             {links.map(l => (
               <Link

@@ -24,22 +24,25 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="footer-heading">Quick Links</h4>
-            {['Home', 'Services', 'Doctors', 'Appointments', 'About', 'Contact'].map(item => (
-              <Link key={item} to={`/${item === 'Home' ? '' : item.toLowerCase()}`} className="footer-link">
-                {item}
-              </Link>
-            ))}
-          </div>
+          {/* Links Group (Side by side on all screens) */}
+          <div className="grid grid-cols-2 gap-5 md:gap-10 lg:col-span-2">
+            {/* Quick Links */}
+            <div>
+              <h4 className="footer-heading">Quick Links</h4>
+              {['Home', 'Services', 'Doctors', 'Appointments', 'About', 'Contact'].map(item => (
+                <Link key={item} to={`/${item === 'Home' ? '' : item.toLowerCase()}`} className="footer-link">
+                  {item}
+                </Link>
+              ))}
+            </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="footer-heading">Services</h4>
-            {['Doctor Appointments', 'Home Checkups', 'Pharmacy Delivery', 'Mental Health', 'AI Health Advisor', 'Emergency Care'].map(s => (
-              <a key={s} href="#" className="footer-link">{s}</a>
-            ))}
+            {/* Services */}
+            <div>
+              <h4 className="footer-heading">Services</h4>
+              {['Doctor Appointments', 'Home Checkups', 'Pharmacy Delivery', 'Mental Health', 'AI Health Advisor', 'Emergency Care'].map(s => (
+                <a key={s} href="#" className="footer-link">{s}</a>
+              ))}
+            </div>
           </div>
 
           {/* Contact + Newsletter */}

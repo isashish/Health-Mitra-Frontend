@@ -81,10 +81,20 @@
   min-height: 500px;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 768px) {
   .hero-swiper {
-    height: calc(100vh - 70px);
-    min-height: 400px;
+    height: 580px; /* More balanced height for mobile */
+    min-height: 580px;
+  }
+  .hero-section {
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-swiper {
+    height: 520px;
+    min-height: 520px;
   }
 }
 
@@ -105,9 +115,17 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg,
-      rgba(5, 20, 30, 0.75) 0%,
-      rgba(5, 20, 30, 0.4) 60%,
+      rgba(5, 20, 30, 0.85) 0%,
+      rgba(5, 20, 30, 0.5) 60%,
       transparent 100%);
+}
+
+@media (max-width: 768px) {
+  .slide-overlay {
+    background: linear-gradient(0deg,
+      rgba(5, 20, 30, 0.9) 0%,
+      rgba(5, 20, 30, 0.4) 100%);
+  }
 }
 
 .slide-content {
@@ -121,6 +139,21 @@
 .slide-text-block {
   max-width: 580px;
   animation: fadeInUp 0.8s ease both;
+}
+
+@media (max-width: 768px) {
+  .slide-content {
+    align-items: flex-end; /* Push text to bottom on mobile */
+    padding-bottom: 4rem;
+    text-align: center;
+  }
+  .slide-text-block {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
 }
 
 /* ===== HERO TEXT ===== */
@@ -238,18 +271,40 @@
 
 .stat-number {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: 2.8rem; /* larger for impact on desktop */
   font-weight: 700;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .stat-text {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   opacity: 0.85;
   margin-top: 0.2rem;
   font-family: var(--font-accent);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .stats-strip {
+    padding: 2.5rem 0;
+  }
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  .stat-text {
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-number {
+    font-size: 1.6rem;
+  }
+  .stat-text {
+    font-size: 0.65rem;
+  }
 }
 
 /* ===== SECTION BACKGROUNDS ===== */
