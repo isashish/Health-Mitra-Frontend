@@ -1,23 +1,45 @@
-/* About.css */
 .about-hero {
-  background: linear-gradient(135deg, #0a1628 0%, #1a4a3a 100%);
-  padding: 200px 0 90px;
   position: relative;
+  background-image: url('https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+  padding: 240px 0 110px;
   overflow: hidden;
-}
-
-@media (max-width: 1024px) {
-  .about-hero { padding-top: 170px; }
-}
-@media (max-width: 768px) {
-  .about-hero { padding: 140px 0 60px; }
 }
 
 .about-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at 60% 40%, rgba(249,115,22,0.1) 0%, transparent 50%);
+  background: linear-gradient(135deg, 
+    rgba(10, 22, 40, 0.92) 0%, 
+    rgba(19, 78, 73, 0.85) 50%, 
+    rgba(10, 22, 40, 0.7) 100%);
+  z-index: 1;
+}
+
+.about-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 60% 40%, rgba(26,154,139,0.3) 0%, transparent 60%);
+  z-index: 2;
+}
+
+@media (max-width: 1024px) {
+  .about-hero { padding-top: 180px; }
+}
+
+@media (max-width: 768px) {
+  .about-hero { 
+    padding: 150px 0 80px; 
+    text-align: center;
+  }
+}
+
+.page-hero-title, .breadcrumb, .page-hero-sub {
+  position: relative;
+  z-index: 3;
 }
 
 .mission-card {
