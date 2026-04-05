@@ -43,16 +43,16 @@ export default function About() {
                 Health Mitra was born from a simple belief: quality healthcare should not be a privilege. We're building the infrastructure to make it a right for every Indian, regardless of location or income.
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="about-stats-grid grid grid-cols-2 gap-4">
               {[
                 { num: '50K+', label: 'Patients Served' },
                 { num: '1,200+', label: 'Verified Doctors' },
                 { num: '150+', label: 'Cities Covered' },
                 { num: '98%', label: 'Satisfaction Rate' },
               ].map((s, i) => (
-                <div key={i} style={{ background: 'rgba(255,255,255,0.08)', borderRadius: 16, padding: '1.5rem', textAlign: 'center', backdropFilter: 'blur(8px)' }}>
-                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 700, color: 'white' }}>{s.num}</div>
-                  <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', marginTop: 4 }}>{s.label}</div>
+                <div key={i} className="about-stat-card">
+                  <div className="about-stat-num">{s.num}</div>
+                  <div className="about-stat-label">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -138,7 +138,7 @@ export default function About() {
           <p style={{ color: 'rgba(255,255,255,0.65)', marginBottom: '2rem', lineHeight: 1.75 }}>
             Take the first step toward better health today. Book your consultation and experience India's most trusted healthcare platform.
           </p>
-          <Link to="/appointments" style={{ background: 'var(--color-primary)', color: 'white', padding: '0.9rem 2.5rem', borderRadius: 50, fontFamily: 'var(--font-accent)', fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8, boxShadow: '0 8px 25px rgba(26,154,139,0.35)' }}>
+          <Link to="/appointments" className="btn-primary" style={{ display: 'inline-flex', padding: '1rem 3rem' }}>
             Book Appointment <ArrowRight size={16} />
           </Link>
         </div>
