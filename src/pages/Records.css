@@ -1,0 +1,260 @@
+:root {
+  --record-bg: #ffffff;
+  --record-shadow: 0 10px 40px -15px rgba(0, 0, 0, 0.08);
+  --primary: #1a9a8b;
+  --accent: #ff7e5f;
+  --text-dark: #2d3748;
+  --text-gray: #718096;
+  --border-color: #edf2f7;
+}
+
+.records-page {
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+.records-hero {
+  position: relative;
+  padding: 10rem 0 6rem;
+  background: linear-gradient(135deg, #0d3b35 0%, #1a9a8b 100%);
+  color: white;
+  overflow: hidden;
+}
+
+.records-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 40%),
+                    radial-gradient(circle at 10% 90%, rgba(26,154,139,0.15) 0%, transparent 30%);
+  z-index: 1;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-accent);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 24px;
+}
+
+.breadcrumb a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: white;
+}
+
+.page-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 20px;
+}
+
+.page-hero-sub {
+  font-size: 1.15rem;
+  max-width: 600px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-accent);
+}
+
+.records-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.record-card {
+  background: var(--record-bg);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--record-shadow);
+  border: 1px solid var(--border-color);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.record-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.12);
+}
+
+.record-header {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.record-type-badge {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-accent);
+}
+
+.record-status-badge {
+  color: #f59e0b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.record-status-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.record-status-badge.confirmed {
+  color: #10b981;
+}
+
+.record-body {
+  padding: 1.5rem;
+  padding-top: 0;
+  flex: 1;
+}
+
+.icon-box {
+  width: 44px;
+  height: 44px;
+  background: rgba(26, 154, 139, 0.08);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.doctor-name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.specialty-text {
+  font-size: 0.875rem;
+  color: var(--text-gray);
+  font-family: var(--font-accent);
+}
+
+.record-info-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-gray);
+  font-family: var(--font-accent);
+  font-weight: 500;
+}
+
+.record-meta {
+  margin-top: 1.5rem;
+}
+
+.patient-snippet, .notes-snippet {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  font-family: var(--font-accent);
+}
+
+.notes-snippet span {
+  font-style: italic;
+}
+
+.record-footer {
+  padding: 1.25rem 1.5rem;
+  background: #fcfdfe;
+  border-top: 1px solid var(--border-color);
+}
+
+.view-details-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  background: transparent;
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--font-accent);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.view-details-btn:hover {
+  background: white;
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 4px 12px rgba(26, 154, 139, 0.1);
+}
+
+.error-card {
+  background: white;
+  border-radius: 32px;
+  border: 1px solid #fee2e2;
+  box-shadow: 0 20px 40px -10px rgba(239, 68, 68, 0.1);
+}
+
+.retry-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font-accent);
+  transition: all 0.2s;
+}
+
+.retry-btn:hover {
+  background: #148074;
+  transform: scale(1.05);
+}
+
+@media (max-width: 640px) {
+  .records-hero {
+    padding: 8rem 0 4rem;
+  }
+}

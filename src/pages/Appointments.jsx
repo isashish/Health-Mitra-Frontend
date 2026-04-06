@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Calendar, Clock, User, Phone, Mail, FileText, CheckCircle, ArrowRight, ChevronRight, Stethoscope } from 'lucide-react'
+import { Calendar, Clock, User, Phone, Mail, FileText, CheckCircle, ArrowRight, ChevronRight, Stethoscope, Loader2 } from 'lucide-react'
+import { createRecord } from '../api/api'
 import './Appointments.css'
 
 const SPECIALTIES = ['General Physician', 'Cardiologist', 'Neurologist', 'Orthopedic', 'Pediatrician', 'Dermatologist', 'Psychiatrist', 'Gynecologist', 'Ophthalmologist', 'ENT Specialist']
@@ -25,12 +26,40 @@ export default function Appointments() {
   const [step, setStep] = useState(0)
   const [form, setForm] = useState({ name: '', email: '', phone: '', age: '', gender: '', specialty: '', doctor: '', date: '', slot: '', notes: '', type: 'in-person' })
   const [success, setSuccess] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   const update = (k, v) => setForm(f => ({ ...f, [k]: v }))
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSuccess(true)
+    setLoading(true)
+    setError(null)
+
+    const payload = {
+      patientName: form.name,
+      email: form.email,
+      phone: form.phone,
+      age: parseInt(form.age) || 0,
+      gender: form.gender,
+      specialty: form.specialty,
+      doctor: form.doctor,
+      bookingDate: form.date,
+      bookingTime: form.slot,
+      notes: form.notes,
+      type: form.type,
+      status: 'Confirmed'
+    }
+
+    try {
+      await createRecord(payload)
+      setSuccess(true)
+    } catch (err) {
+      setError('Something went wrong. Please try again.')
+      console.error(err)
+    } finally {
+      setLoading(false)
+    }
   }
 
   const canNext = () => {
@@ -206,8 +235,10 @@ export default function Appointments() {
                           </div>
                         ))}
                       </div>
-                      <button type="submit" className="form-submit">
-                        <CheckCircle size={18} /> Confirm Appointment
+                      {error && <p style={{ color: '#e53e3e', fontSize: '0.85rem', marginBottom: '1rem', textAlign: 'center' }}>{error}</p>}
+                      <button type="submit" className="form-submit" disabled={loading}>
+                        {loading ? <Loader2 className="animate-spin" size={18} /> : <CheckCircle size={18} />} 
+                        {loading ? ' Processing...' : ' Confirm Appointment'}
                       </button>
                     </div>
                   )}

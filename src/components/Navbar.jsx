@@ -125,7 +125,7 @@ export default function Navbar() {
                     </div>
                     <div className="dropdown-body">
                       <button className="dropdown-item"><User size={16} /> My Profile</button>
-                      <button className="dropdown-item"><Shield size={16} /> Medical Records</button>
+                      <button className="dropdown-item" onClick={() => navigate('/records')}><Shield size={16} /> Medical Records</button>
                       <button className="dropdown-item"><Settings size={16} /> Settings</button>
                       <div className="dropdown-divider" />
                       <button className="dropdown-item logout"><LogOut size={16} /> Log Out</button>
@@ -159,7 +159,7 @@ export default function Navbar() {
           <div className="search-container">
             <div className="search-header">
               <div className="search-input-wrapper">
-                <Search size={24} className="search-icon" />
+                <Search size={24} className="navbar-search-icon" />
                 <input 
                   type="text" 
                   placeholder="Search doctors, symptoms, medicines..." 

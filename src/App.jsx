@@ -9,6 +9,7 @@ import Doctors from './pages/Doctors'
 import Appointments from './pages/Appointments'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import Records from './pages/Records'
 
 const QUOTES = [
   { text: 'The greatest wealth is health.', author: 'Virgil' },
@@ -107,6 +108,7 @@ export default function App() {
         <Route path="/appointments" element={<Appointments />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/records" element={<Records />} />
       </Routes>
       <Footer />
     </Router>
